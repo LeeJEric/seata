@@ -13,53 +13,21 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package io.seata.server.logging.logback.ansi;
+package io.seata.core.store;
 
 /**
- * {@link AnsiElement Ansi} styles.
- *
- * @author Phillip Webb
- * @origin Copied from spring-boot.jar by wang.liang
+ * @description Default distributed locker
+ * @author zhongxiang.wang
  */
-public enum AnsiStyle implements AnsiElement {
+public class DefaultDistributedLocker implements DistributedLocker {
 
-    /**
-     * normal
-     */
-    NORMAL("0"),
-
-    /**
-     * bold
-     */
-    BOLD("1"),
-
-    /**
-     * faint
-     */
-    FAINT("2"),
-
-    /**
-     * italic
-     */
-    ITALIC("3"),
-
-    /**
-     * underline
-     */
-    UNDERLINE("4");
-
-    /**
-     * code of style
-     */
-    private final String code;
-
-    AnsiStyle(String code) {
-        this.code = code;
+    @Override
+    public boolean acquireLock(DistributedLockDO distributedLockDO) {
+        return true;
     }
 
     @Override
-    public String toString() {
-        return this.code;
+    public boolean releaseLock(DistributedLockDO distributedLockDO) {
+        return true;
     }
-
 }

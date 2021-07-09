@@ -50,9 +50,19 @@
                 <include>**/*.xml</include>
             </includes>
         </fileSet>
+
+        <fileSet>
+            <directory>../ext/apm-seata-skywalking-plugin/target/ext/skywalking-agent/</directory>
+            <outputDirectory>ext/apm-skywalking/</outputDirectory>
+        </fileSet>
     </fileSets>
 
     <files>
+        <file>
+            <source>Dockerfile</source>
+            <destName>Dockerfile</destName>
+        </file>
+
         <file>
             <source>LICENSE-BIN</source>
             <destName>LICENSE</destName>
@@ -64,16 +74,16 @@
         </file>
 
         <file>
-            <source>../server/src/main/resources/application.yaml</source>
+            <source>../server/src/main/resources/application.yml</source>
             <outputDirectory>conf/</outputDirectory>
         </file>
         <file>
-            <source>../server/src/main/resources/application.example.yaml</source>
+            <source>../server/src/main/resources/application.example.yml</source>
             <outputDirectory>conf/</outputDirectory>
         </file>
 
         <file>
-            <source>../server/src/main/resources/logback.xml</source>
+            <source>../server/src/main/resources/logback-spring.xml</source>
             <outputDirectory>conf/</outputDirectory>
         </file>
     </files>
